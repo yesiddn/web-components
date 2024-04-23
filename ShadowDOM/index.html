@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Custom elements</title>
+
+  <!-- En estos momentos, hay un conflicto de especificidad con los estilos ya que estos se sobreescriben. Este problema lo soluciona el shadow dom -->
+  <style>
+    h2 {
+      color: red;
+    }
+
+    .title {
+      color: blue;
+    }
+  </style>
+</head>
+<body>
+  <!-- Si se usa template directamente en el html, todo el contenido que haya dentro no se renderizará, pero si aparecera dentro del inspector de elementos. Todo el contenido que tenga aparecerá como un #document-fragment -->
+  <!-- <template>
+    <h1>Template</h1>
+    <p>Este es un template</p>
+  </template> -->
+
+  <h2 class="title">I'm a title from the index.html</h2>
+  <my-element></my-element>
+  <script type="module" src="./my-element.js"></script>
+</body>
+</html>
