@@ -9,7 +9,12 @@
   <h2 class="title">I'm a title from the index.html</h2>
   <my-element>
     <!-- Este texto esta existiendo en el light dom -->
-    Soy texto fuera del componente 
+    <!-- un solo slot -->
+    <!-- Soy texto fuera del componente  -->
+
+    <!-- multi slot -->
+    <span slot="title">Soy el titulo</span>
+    <span slot="content">Soy el contenido</span>
   </my-element>
   <script type="module" src="./my-element.js"></script>
 </body>

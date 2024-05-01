@@ -24,10 +24,10 @@ class myElement extends HTMLElement {
     template.innerHTML = `
       <section>
         <h2>
-          <slot></slot>
+          <slot name="title"></slot>
         </h2>
         <div>
-          <p></p>
+          <p><slot name="content"></slot></p>
         </div>
       </section>
       ${this.getStyles()}
