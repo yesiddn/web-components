@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Custom properties</title>
+  <style>
+    my-element {
+      --primary-color: #3498db;
+      --heading-primary: 3rem;
+    }
+
+    .second {
+      --primary-color: #00dbb7;
+      --heading-primary: 2.5rem;
+    }
+  </style>
+</head>
+<body>
+  <h2 class="title">I'm a title from the index.html</h2>
+  <my-element>
+    <span slot="title">Soy el titulo</span>
+    <span slot="content">Soy el contenido</span>
+  </my-element>
+
+  <my-element class="second">
+    <span slot="title">Soy el titulo</span>
+    <span slot="content">Soy el contenido</span>
+  </my-element>
+  <script type="module" src="./my-element.js"></script>
+</body>
+</html>
