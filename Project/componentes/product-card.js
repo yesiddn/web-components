@@ -4,24 +4,37 @@ class ProductCard extends HTMLElement {
     this.attachShadow({ mode: 'open' });
   }
 
+  static get observedAttributes() {
+    return ['name', 'price', 'img', 'description', 'collection'];
+  }
+
+  attributeChangedCallback(attr, oldVal, newVal) {
+    const attributes = ProductCard.observedAttributes;
+    console.log(attr, oldVal, newVal);
+    if (attributes.includes(attr) && oldVal !== newVal) {
+      this[attr] = newVal;
+    }
+  }
+
   getTemplate() {
     const template = document.createElement('template');
     template.innerHTML = /*html*/ `
       <main class="container">
         <section class="imgBox">
-          <img src="./img/nike-blue.png" alt="Tenis Nike Blue">
+          <img src="${this.img}" alt="${this.name}">
         </section>
 
         <section class="details">
           <div class="content">
-            <h2>A product</h2>
+            <h2>
+            ${this.name}
+            <span>${this.collection}</span>
+          </h2>
             
-            <p>
-              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Repudiandae delectus laborum aliquid illo exercitationem cumque aliquam ab voluptates veniam atque sequi, numquam dicta officiis enim fugiat vitae ea inventore officia?
-            </p>
+            <p>${this.description}</p>
 
             <h3>
-              $100 USD
+              ${this.price}
             </h3>
 
             <button type="button">Comprar</button>
